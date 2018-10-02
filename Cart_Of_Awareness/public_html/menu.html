@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worked example from lecture notes</title>
+<style>
+#canvas
+{
+    border:1px solid black;
+    width:350px;
+    height:550px;
+}
+
+#loadingMessage
+{
+    position:absolute;
+    top:100px;
+    left:100px;
+    z-index:100;
+    font-size:50px;
+}
+</style>
+
+<script>
+    
+    //Defining size of the canvas/screen
+    var CANVAS_WIDTH = 350; 
+    var CANVAS_HEIGHT = 550;
+
+    var canvas;
+    var ctx;
+
+    
+
+    //Loading all images into variables to be called by the program
+    var TitleButton = new Image();
+    TitleButton.src = "img/TitleButton.png";
+    var GameLogo = new Image();
+    GameLogo.src = "img/GameLogo.png";
+    
+
+
+
+    window.onload = onAllAssetsLoaded;
+    document.write("<div id='loadingMessage'>Loading...</div>");
+    function onAllAssetsLoaded()
+    {
+        // hide the webpage loading message
+        document.getElementById('loadingMessage').style.visibility = "hidden";
+
+        canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
+        canvas.width = CANVAS_WIDTH;
+        canvas.height = CANVAS_HEIGHT;
+
+        renderCanvas();
+    }
+
+
+
+    function renderCanvas()
+    {
+        /* Draw on the canvas/screen */
+        ctx.drawImage(GameLogo, CANVAS_WIDTH/70 * 4 , (CANVAS_HEIGHT/130 * 5) , ((CANVAS_WIDTH / 70 )* 62 ), ((CANVAS_HEIGHT / 130 )* 20));
+        ctx.drawImage(TitleButton, CANVAS_WIDTH/5.6 , (CANVAS_HEIGHT/130 * 18)*2 , ((CANVAS_WIDTH/5.6) * 3.6), (CANVAS_HEIGHT/130 * 12));
+        ctx.drawImage(TitleButton, CANVAS_WIDTH/5.6 , (CANVAS_HEIGHT/130 * 18)*3 , ((CANVAS_WIDTH/5.6) * 3.6), (CANVAS_HEIGHT/130 * 12));
+        ctx.drawImage(TitleButton, CANVAS_WIDTH/5.6 , (CANVAS_HEIGHT/130 * 18)*4 , ((CANVAS_WIDTH/5.6) * 3.6), (CANVAS_HEIGHT/130 * 12));
+        ctx.drawImage(TitleButton, CANVAS_WIDTH/5.6 , (CANVAS_HEIGHT/130 * 18)*5.9 , ((CANVAS_WIDTH/5.6) * 3.6), (CANVAS_HEIGHT/130 * 12));
+        
+}
+</script>
+</head>
+
+<body>
+<canvas id = "canvas">
+Your browser does not support the HTML5 'Canvas' tag.
+</canvas>
+</body>
+</html>
